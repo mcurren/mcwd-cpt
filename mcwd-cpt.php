@@ -41,18 +41,18 @@ define( 'MCWD_CPT_VERSION', '1.0.0' );
  * Custom Post Type variables.
  * Each custom post type to be declared should define the following 
  * variables in an array: 
- * slug, title, label_menu, label_singular, label_plural, 
- * menu_icon, taxonomies, has_archive
+ * slug, taxonomies, title, label_menu, label_singular, label_plural, 
+ * menu_icon, has_archive
  */
 define( 'MCWD_CPT_POST_TYPES', array(
 	array(
-		'slug' 						=> 'projects',
+		'slug' 						=> 'project',
+		'taxonomies'			=> array('project-type'),
 		'title' 					=> 'Portfolio Projects',
 		'label_menu' 			=> 'Portfolio',
 		'label_singular' 	=> 'Project',
 		'label_plural'		=> 'Projects',
 		'menu_icon'				=> 'dashicons-open-folder',
-		'taxonomies'			=> array('portfolio_category'),
 		'has_archive'			=> false,
 	),
 ) );
@@ -61,10 +61,17 @@ define( 'MCWD_CPT_POST_TYPES', array(
  * Custom Taxonomy variables.
  * Each custom taxonomy to be declared should define the following 
  * variables in an array: 
- * ...
+ * slug, post_types, title, label_singular, label_plural, rest_base
  */
 define( 'MCWD_CPT_TAXONOMIES', array(
-
+	array(
+		'slug' 						=> 'project-type',
+		'post_types' 			=> array('project'),
+		'title' 					=> 'Project Categories',
+		'label_singular'	=> 'Category',
+		'label_plural' 		=> 'Categories',
+		'rest_base'				=> 'project-types',
+	),
 ) );
 	
 /**

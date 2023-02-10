@@ -74,6 +74,8 @@ class Mcwd_Cpt_Admin {
 
 		add_action('init', array( $this, 'register_custom_post_types' ));
 
+		add_action('init', array( $this, 'register_custom_taxonomies' ));
+
 	}
 
 	/**
@@ -154,6 +156,50 @@ class Mcwd_Cpt_Admin {
 			);
 
 			register_post_type( $type['slug'], $args );
+
+		endforeach;
+
+	}
+
+	public function register_custom_taxonomies() {
+
+		foreach( $this->taxonomies as $tax ) :
+		
+			$labels = array(
+				'name'                       => $tax['title'],
+				'singular_name'              => $tax['label_singular'],
+				'menu_name'                  => $tax['label_plural'],
+				'all_items'                  => 'All Items',
+				'parent_item'                => 'Parent Item',
+				'parent_item_colon'          => 'Parent Item:',
+				'new_item_name'              => 'New Item Name',
+				'add_new_item'               => 'Add New Item',
+				'edit_item'                  => 'Edit Item',
+				'update_item'                => 'Update Item',
+				'view_item'                  => 'View Item',
+				'separate_items_with_commas' => 'Separate items with commas',
+				'add_or_remove_items'        => 'Add or remove items',
+				'choose_from_most_used'      => 'Choose from the most used',
+				'popular_items'              => 'Popular Items',
+				'search_items'               => 'Search Items',
+				'not_found'                  => 'Not Found',
+				'no_terms'                   => 'No items',
+				'items_list'                 => 'Items list',
+				'items_list_navigation'      => 'Items list navigation',
+			);
+			$args = array(
+				'labels'                     => $labels,
+				'hierarchical'               => true,
+				'public'                     => true,
+				'show_ui'                    => true,
+				'show_admin_column'          => true,
+				'show_in_nav_menus'          => true,
+				'show_tagcloud'              => false,
+				'show_in_rest'               => true,
+				'rest_base'                  => $tax['rest_base'],
+			);
+					
+			register_taxonomy( $tax['slug'], $tax['post_types'], $args );
 
 		endforeach;
 
