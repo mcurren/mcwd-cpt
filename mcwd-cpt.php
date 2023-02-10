@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       MCWD Site Utilities
- * Plugin URI:        https://curren.me
+ * Plugin URI:        https://github.com/mcurren/mcwd-cpt
  * Description:       Primarily a programmatic declaration of Custom Post Types & Taxonomies for a WordPress site.
  * Version:           1.0.0
  * Author:            Mike Curren
