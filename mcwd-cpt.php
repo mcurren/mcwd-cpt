@@ -38,39 +38,37 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'MCWD_CPT_VERSION', '1.0.0' );
 
 /**
- * Custom Post Type variables.
+ * Custom Post Types.
  * Each custom post type to be declared should define the following 
  * variables in an array: 
- * slug, taxonomies, title, label_menu, label_singular, label_plural, 
- * menu_icon, has_archive
+ * name_plural, name_singular, taxonomies, menu_icon, has_archive, 
+ * rest_base, slug
  */
 define( 'MCWD_CPT_POST_TYPES', array(
 	array(
-		'slug' 						=> 'project',
-		'taxonomies'			=> array('project-type'),
-		'title' 					=> 'Portfolio Projects',
-		'label_menu' 			=> 'Portfolio',
-		'label_singular' 	=> 'Project',
-		'label_plural'		=> 'Projects',
-		'menu_icon'				=> 'dashicons-open-folder',
-		'has_archive'			=> false,
+		'name_plural' 	=> 'Projects',
+		'name_singular' => 'Project',
+		'taxonomies' 		=> array('project-type'),
+		'menu_icon' 		=> 'dashicons-open-folder',
+		'has_archive' 	=> false,
+		'rest_base' 		=> 'projects',
+		'slug' 					=> 'project'
 	),
 ) );
 
 /**
- * Custom Taxonomy variables.
+ * Custom Taxonomies.
  * Each custom taxonomy to be declared should define the following 
  * variables in an array: 
- * slug, post_types, title, label_singular, label_plural, rest_base
+ * name_plural, name_singular, rest_base, slug, post_types
  */
 define( 'MCWD_CPT_TAXONOMIES', array(
 	array(
+		'name_plural' 		=> 'Types',
+		'name_singular'		=> 'Type',
+		'rest_base'				=> 'project-types',
 		'slug' 						=> 'project-type',
 		'post_types' 			=> array('project'),
-		'title' 					=> 'Project Categories',
-		'label_singular'	=> 'Category',
-		'label_plural' 		=> 'Categories',
-		'rest_base'				=> 'project-types',
 	),
 ) );
 	
