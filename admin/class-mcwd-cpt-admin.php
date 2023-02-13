@@ -160,7 +160,7 @@ class Mcwd_Cpt_Admin {
 			$args = array(
 				'label'                 => $type['name_singular'],
 				'labels'                => $labels,
-				'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
+				'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes', 'excerpt' ),
 				'taxonomies'            => $type['taxonomies'],
 				'hierarchical'          => false,
 				'public'                => true,
